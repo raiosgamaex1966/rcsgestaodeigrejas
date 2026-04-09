@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_SUPABASE_URL=https://vlshdkqifbuncbsroumg.supabase.co
+        - VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_ObHT9ozgvXBzGewY3Dm3GQ_7kt0Hh15
+        - VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZsc2hka3FpZmJ1bmNic3JvdW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxMjc0NzAsImV4cCI6MjA4NTcwMzQ3MH0.234oQUIWSC8tML4ykqYpmVkxWwxpqTvhCyZXDkh8MOI
+    container_name: igreja_app
+    restart: always
+    networks:
+      - traefik-public
+    labels:
+      - "traefik.enable=true"
+      # Mude 'seu-dominio.com' para o domínio real que você apontar no DNS
+      - "traefik.http.routers.igreja-app.rule=Host(`seu-dominio.com`)"
+      - "traefik.http.routers.igreja-app.entrypoints=websecure"
+      - "traefik.http.routers.igreja-app.tls.certresolver=letsencrypt"
+      - "traefik.http.services.igreja-app.loadbalancer.server.port=80"
+
+networks:
+  traefik-public:
+    external: true
