@@ -100,7 +100,7 @@ Deno.serve(async (req) => {
 
     // It's a crawler - fetch content and return meta tags
     // Use church settings for defaults
-    let title = churchSettings?.seo_title || churchSettings?.church_name || 'VERBO'
+    let title = churchSettings?.seo_title || churchSettings?.church_name || 'RCS Gestão de Igrejas'
     let description = churchSettings?.seo_description || 'Aplicativo da Igreja'
     let imageUrl = ''
     let contentUrl = appUrl

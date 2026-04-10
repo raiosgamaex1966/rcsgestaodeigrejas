@@ -98,7 +98,7 @@ const AdminPWA = () => {
                 id="pwa_name"
                 value={getValue('pwa_name')}
                 onChange={(e) => handleChange('pwa_name', e.target.value)}
-                placeholder="Igreja VERBO"
+                placeholder="Igreja RCS Gestão"
               />
               <p className="text-xs text-muted-foreground">
                 Nome exibido na tela de instalação
@@ -111,7 +111,7 @@ const AdminPWA = () => {
                 id="pwa_short_name"
                 value={getValue('pwa_short_name')}
                 onChange={(e) => handleChange('pwa_short_name', e.target.value)}
-                placeholder="VERBO"
+                placeholder="RCS Gestão"
                 maxLength={12}
               />
               <p className="text-xs text-muted-foreground">
@@ -276,7 +276,7 @@ const AdminPWA = () => {
                   )}
                 </div>
                 <span className="mt-2 text-white text-xs font-medium">
-                  {getValue('pwa_short_name') || 'VERBO'}
+                  {getValue('pwa_short_name') || 'RCS Gestão'}
                 </span>
               </div>
             </div>

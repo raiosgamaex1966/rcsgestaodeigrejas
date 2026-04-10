@@ -85,7 +85,7 @@ const AdminSEO = () => {
                 id="seo_title"
                 value={getValue('seo_title')}
                 onChange={(e) => handleChange('seo_title', e.target.value)}
-                placeholder="Igreja VERBO - Aplicativo Oficial"
+                placeholder="RCS Gestão de Igrejas - Aplicativo Oficial"
                 maxLength={60}
               />
               <p className="text-xs text-muted-foreground">

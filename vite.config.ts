@@ -17,9 +17,9 @@ export default defineConfig(({ mode }) => ({
       registerType: "autoUpdate",
       includeAssets: ["mask-icon.svg"],
       manifest: {
-        name: "VERBO",
-        short_name: "VERBO",
-        description: "Hoje já somos mais de 540 igrejas espalhadas pelo Brasil e mundo.",
+        name: "RCS Gestão de Igrejas",
+        short_name: "RCS Gestão",
+        description: "Plano de gestão completa para igrejas, ministérios e pastores.",
         theme_color: "#0f0f0f",
         background_color: "#faf8f5",
         display: "standalone",

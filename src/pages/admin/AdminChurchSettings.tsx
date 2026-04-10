@@ -90,7 +90,7 @@ const AdminChurchSettings = () => {
                 id="church_name"
                 value={getValue('church_name')}
                 onChange={(e) => handleChange('church_name', e.target.value)}
-                placeholder="Igreja VERBO"
+                placeholder="Igreja RCS Gestão"
               />
             </div>
             <div className="space-y-2">

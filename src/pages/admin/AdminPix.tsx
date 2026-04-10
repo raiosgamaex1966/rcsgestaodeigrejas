@@ -136,7 +136,7 @@ const AdminPix = () => {
                 id="pix_beneficiary_name"
                 value={getValue('pix_beneficiary_name')}
                 onChange={(e) => handleChange('pix_beneficiary_name', e.target.value)}
-                placeholder="Igreja VERBO"
+                placeholder="Igreja RCS Gestão"
               />
               <p className="text-xs text-muted-foreground">
                 Nome que aparecerá no comprovante de pagamento
