@@ -160,6 +160,15 @@ const SidebarNav = ({ location, tenant, signOut, themeLoading, onNavigate }: Sid
         <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 mb-2">Geral</p>
 
         <Link
+          to={getFullHRef("/app")}
+          onClick={onNavigate}
+          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors duration-200"
+        >
+          <ChevronLeft className="w-5 h-5 text-primary" />
+          Voltar ao Dashboard
+        </Link>
+
+        <Link
           to={getFullHRef("/admin")}
           onClick={onNavigate}
           className={cn(

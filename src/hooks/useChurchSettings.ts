@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { useAuth } from './useAuth';
 
 export interface ChurchSettings {
   id: string;
@@ -53,15 +54,16 @@ export interface ChurchSettings {
 
 export const useChurchSettings = () => {
   const queryClient = useQueryClient();
+  const { tenantId } = useAuth();
 
   const { data: settings, isLoading } = useQuery({
-    queryKey: ['church-settings'],
+    queryKey: ['church-settings', tenantId],
+    enabled: !!tenantId,
     queryFn: async () => {
       const { data, error } = await supabase
         .from('church_settings')
         .select('*')
-        .order('created_at', { ascending: false })
-        .limit(1)
+        .eq('tenant_id', tenantId)
         .maybeSingle();
 
       if (error) throw error;
@@ -77,6 +79,7 @@ export const useChurchSettings = () => {
           .from('church_settings')
           .insert({
             church_name: "Minha Igreja",
+            tenant_id: tenantId,
             ...updates
           })
           .select()
@@ -97,7 +100,7 @@ export const useChurchSettings = () => {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['church-settings'] });
+      queryClient.invalidateQueries({ queryKey: ['church-settings', tenantId] });
       toast.success('Configurações salvas com sucesso!');
     },
     onError: (error) => {
